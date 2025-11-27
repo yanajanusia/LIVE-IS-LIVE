@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Новогодний кроссворд</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f0f8ff;
+      padding: 20px;
+    }
+    h1 {
+      color: #d40000;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    td {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #333;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 16px;
+      color: #000;
+    }
+    .empty {
+      background-color: #eee;
+    }
+    .word-list {
+      margin-top: 30px;
+      text-align: left;
+      display: inline-block;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .word-list h2 {
+      margin-top: 0;
+      color: #006400;
+    }
+  </style>
+</head>
+<body>
+  <h1>Новогодний кроссворд</h1>
+
+  <table>
+    <!-- Строка 0 -->
+    <tr>
+      <td class="empty"></td>
+      <td>м</td>
+      <td>а</td>
+      <td>н</td>
+      <td>д</td>
+      <td>а</td>
+      <td>р</td>
+      <td>и</td>
+      <td>н</td>
+      <td>ы</td>
+    </tr>
+    <!-- Строка 1 -->
+    <tr>
+      <td>ё</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 2 -->
+    <tr>
+      <td>л</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 3 -->
+    <tr>
+      <td>к</td>
+      <td>х</td>
+      <td>л</td>
+      <td>о</td>
+      <td>п</td>
+      <td>у</td>
+      <td>ш</td>
+      <td>к</td>
+      <td>а</td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 4 -->
+    <tr>
+      <td>а</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 5 -->
+    <tr>
+      <td class="empty"></td>
+      <td>г</td>
+      <td>и</td>
+      <td>р</td>
+      <td>л</td>
+      <td>я</td>
+      <td>н</td>
+      <td>д</td>
+      <td>а</td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 6 -->
+    <tr>
+      <td>п</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td>р</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 7 -->
+    <tr>
+      <td>р</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td>а</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 8 -->
+    <tr>
+      <td>а</td>
+      <td>с</td>
+      <td>е</td>
+      <td>м</td>
+      <td>ь</td>
+      <td>я</td>
+      <td class="empty"></td>
+      <td>д</td>
+      <td>р</td>
+      <td>у</td>
+    </tr>
+    <!-- Строка 9 -->
+    <tr>
+      <td>з</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td>у</td>
+      <td class="empty"></td>
+      <td>з</td>
+    </tr>
+    <!-- Строка 10 -->
+    <tr>
+      <td>д</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td>з</td>
+      <td class="empty"></td>
+      <td>ь</td>
+    </tr>
+    <!-- Строка 11 -->
+    <tr>
+      <td>н</td>
+      <td>с</td>
+      <td>н</td>
+      <td>е</td>
+      <td>г</td>
+      <td>о</td>
+      <td>в</td>
+      <td>и</td>
+      <td>к</td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 12 -->
+    <tr>
+      <td>и</td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+      <td class="empty"></td>
+    </tr>
+    <!-- Строка 13 -->
+    <tr>
+      <td>к</td>
+      <td>д</td>
+      <td>е</td>
+      <td>д</td>
+      <td>м</td>
+      <td>о</td>
+      <td>р</td>
+      <td>о</td>
+      <td>з</td>
+      <td class="empty"></td>
+    </tr>
+  </table>
+
+  <div class="word-list">
+    <h2>Слова в кроссворде:</h2>
+    <ul>
+      <li>мандарины</li>
+      <li>ёлка</li>
+      <li>хлопушка</li>
+      <li>гирлянда</li>
+      <li>праздник</li>
+      <li>радость</li>
+      <li>семья</li>
+      <li>друзья</li>
+      <li>снеговик</li>
+      <li>дедмороз</li>
+    </ul>
+  </div>
+
+</body>
+</html>
