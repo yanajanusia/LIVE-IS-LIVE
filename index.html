@@ -54,6 +54,22 @@
 </p>
   <blockquote class="q">Путешествие в тысячу миль начинается с одного шага (Лао Цзы) </blockquote>
       <p class="contact info">
+        <script>
+    function createSnowflakes() {
+      const snowContainer = document.body;
+      const snowflakeCount = 100;
+
+      for (let i = 0; i < snowflakeCount; i++) {
+        const snow = document.createElement('div');
+…          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+
+    // Запускаем после загрузки страницы
+    window.addEventListener('load', createSnowflakes);
+  </script>
 </body>
          
            </html>   
