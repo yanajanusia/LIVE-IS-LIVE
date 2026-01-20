@@ -2,6 +2,7 @@
 <html lang="ru">
   <head>
      <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
   <title>Мой блог</title>
   <style>
     body  {
@@ -34,16 +35,22 @@
       top: calc(50% + 60px);
       left: calc(50% - 10px);
       z-index: 9;
+    
     }
-    .trunk {
+   .ball {
       position: absolute;
-      width: 20px;
-      height: 30px;
-      background: #8B4513;
-      top: calc(50% + 60px);
-      left: calc(50% - 10px);
-      z-index: 9;
+      width: 40px;
+      height: 40px;
+      background: #ff69b4;
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(255, 105, 180, 0.8);
+      z-index: 5;
     }
+    .ball.top-left { top: 20px; left: 20px; }
+    .ball.top-right { top: 20px; right: 20px; }
+    .ball.bottom-left { bottom: 20px; left: 20px; }
+    .ball.bottom-right { bottom: 20px; right: 20px; }
+ 
     .content {
       position: relative;
       z-index: 20;
