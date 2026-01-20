@@ -59,13 +59,35 @@
       const snowContainer = document.body;
       const snowflakeCount = 100;
 
-      for (let i = 0; i < snowflakeCount; i++) {
+      for (let i = 0; i < snowflakeCount; i++) 
+        const snow = document.createElement('div');
+        snow.classList.add('snow');
+
+        const size = Math.random() * 10 + 2;
+        snow.style.width = `${size}px`;
+        snow.style.height = `${size}px`;
+
+        // Случайная позиция по горизонтали
+        snow.style.left = `${Math.random() * 100}vw`;
+      
+         const duration = Math.random() * 5 + 5; // 5–10 сек
+        const delay = Math.random() * 5;
+        snow.style.animation = `fall ${duration}s linear infinite`;
+        snow.style.animationDelay = `${delay}s`;
         const snow = document.createElement('div');
 …          }
         `;
         document.head.appendChild(style);
-      }
-    }
+         if (!document.getElementById('snow-style')) {
+        const style = document.createElement('style');
+        style.id = 'snow-style';
+        style.textContent = `
+          @keyframes fall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+         
 
     // Запускаем после загрузки страницы
     window.addEventListener('load', createSnowflakes);
