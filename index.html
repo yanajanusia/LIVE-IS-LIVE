@@ -152,6 +152,150 @@ blockquote {
   <div class="trunk"></div>
 <!-- Контент -->
   <div class="content">
+    <p>Создано 21 января 2026</p>
+    <h1>🔐 Учебный пример RSA</h1>
+  <p>Введите два простых числа и сообщение (целое число), чтобы увидеть, как работает шифрование.</p>
+
+  <label for="p">p (простое число, например: 5)</label>
+  <input type="number" id="p" value="5" min="2">
+
+  <label for="q">q (простое число, например: 11)</label>
+  <input type="number" id="q" value="11" min="2">
+
+  <label for="m">m (сообщение, должно быть &lt; n)</label>
+  <input type="number" id="m" value="7" min="1">
+
+  <button onclick="runRSA()">Выполнить RSA</button>
+
+  <div id="output" class="result"></div>
+    <script>
+    // НОД (алгоритм Евклида)
+    function gcd(a, b) {
+      while (b !== 0) {
+        [a, b] = [b, a % b];
+      }
+      return a;
+    }
+
+    // Поиск d: e * d ≡ 1 (mod phi)
+    function modInverse(e, phi) {
+      for (let d = 1; d < phi; d++) {
+        if ((e * d) % phi === 1) {
+          return d;
+        }
+      }
+      return null; // не найдено
+    }
+ function modPow(base, exp, mod) {
+      let result = 1;
+      base = base % mod;
+      while (exp > 0) {
+        if (exp % 2 === 1) {
+          result = (result * base) % mod;
+        }
+        exp = Math.floor(exp / 2);
+        base = (base * base) % mod;
+      }
+      return result;
+    }
+       function isPrime(n) {
+      if (n < 2) return false;
+      if (n === 2) return true;
+      if (n % 2 === 0) return false;
+      for (let i = 3; i <= Math.sqrt(n); i += 2) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+      
+    // Проверка, простое ли число (для небольших чисел)
+    function isPrime(n) {
+      if (n < 2) return false;
+      if (n === 2) return true;
+      if (n % 2 === 0) return false;
+      for (let i = 3; i <= Math.sqrt(n); i += 2) {
+        if (n % i === 0) return false;
+      }
+      return true;
+    }
+
+    function runRSA() {
+      const p = parseInt(document.getElementById('p').value);
+      const q = parseInt(document.getElementById('q').value);
+      const m = parseInt(document.getElementById('m').value);
+
+      const out = document.getElementById('output');
+      out.innerHTML = '';
+
+      // Проверки
+      if (!isPrime(p)) {
+        out.innerHTML = `<span class="warning">❌ p = ${p} не является простым числом!</span>`;
+        return;
+      }
+      if (!isPrime(q)) {
+        out.innerHTML = `<span class="warning">❌ q = ${q} не является простым числом!</span>`;
+        return;
+      }
+      if (p === q) {
+        out.innerHTML = `<span class="warning">⚠️ p и q должны быть разными простыми числами.</span>`;
+        return;
+      }
+
+      const n = p * q;
+      const phi = (p - 1) * (q - 1);
+
+      if (m >= n) {
+        out.innerHTML = `<span class="warning">❌ Сообщение m = ${m} должно быть меньше n = ${n}.</span>`;
+        return;
+      }
+
+      // Выбор e
+      let e = 3;
+      while (e < phi) {
+        if (gcd(e, phi) === 1) break;
+        e++;
+      }
+      if (e >= phi) {
+        out.innerHTML = `<span class="warning">❌ Не удалось найти подходящее e.</span>`;
+        return;
+      }
+
+      const d = modInverse(e, phi);
+      if (d === null) {
+        out.innerHTML = `<span class="warning">❌ Не удалось найти закрытый ключ d.</span>`;
+        return;
+      }
+
+      // Шифрование и расшифрование
+      const c = modPow(m, e, n);
+      const decrypted = modPow(c, d, n);
+
+      let result = `🔹 Шаг 1: p = ${p}, q = ${q}\n`;
+      result += `🔹 Шаг 2: n = p × q = ${n}\n`;
+      result += `🔹 Шаг 3: φ(n) = (p−1)(q−1) = ${phi}\n`;
+      result += `🔹 Шаг 4: Открытая экспонента e = ${e} (НОД(${e}, ${phi}) = 1)\n`;
+      result += `🔹 Шаг 5: Закрытая экспонента d = ${d} (поскольку (${e} × ${d}) mod ${phi} = ${(e * d) % phi})\n\n`;
+
+      result += `🔑 Открытый ключ: (n, e) = (${n}, ${e})\n`;
+      result += `🔒 Закрытый ключ: (n, d) = (${n}, ${d})\n\n`;
+
+      result += `📩 Сообщение: m = ${m}\n`;
+      result += `📤 Шифрование: C = m^e mod n = ${m}^${e} mod ${n} = ${c}\n`;
+      result += `📥 Расшифрование: M = C^d mod n = ${c}^${d} mod ${n} = ${decrypted}\n\n`;
+
+      if (decrypted === m) {
+        result += `✅ Успех! Исходное сообщение восстановлено.`;
+      } else {
+        result += `❌ Ошибка! Расшифрованное сообщение не совпадает с исходным.`;
+      }
+
+      out.textContent = result;
+    }
+
+    // Запустить при загрузке
+    window.onload = runRSA;
+  </script>
      <p>Создано:19 января 2026 </p>
       <p>Шифр ЦЕЗАРЯ!</p>
         <p>ключ для:
