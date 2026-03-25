@@ -309,8 +309,119 @@ blockquote {
       456789012345678901234567890123456789012345678901234567890123456789012345678901234567890......785696718
       753769480731766</p>
 
+<h2>25 марта 2026</h2>
+    <p>Accuracy:  0.625
+Precision: 0.649
+Recall:    0.746
+F1-Score:  0.694
+AUC-ROC:   0.621
+Gini:      0.243
 
-<h2>21 февраля 2026</h2>
+Classification Report:
+              precision    recall  f1-score   support
+
+      Плохой       0.58      0.47      0.52        86
+     Хороший       0.65      0.75      0.69       114
+
+    accuracy                           0.62       200
+   macro avg       0.61      0.61      0.61       200
+weighted avg       0.62      0.62      0.62       200
+
+
+Confusion Matrix:
+[[40 46]
+ [29 85]]</p>
+    
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модель страхования КАСКО</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .card { background: #f5f5f5; padding: 20px; border-radius: 10px; margin: 20px 0; }
+        .metric { font-size: 24px; color: #2ecc71; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #ddd; }
+        .form-group { margin: 15px 0; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        button { background: #3498db; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #2980b9; }
+        #result { margin-top: 20px; padding: 20px; border-radius: 5px; }
+        .approved { background: #d4edda; color: #155724; }
+        .rejected { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>🚗 Модель страхования КАСКО</h1>
+    
+    <div class="card">
+        <h2>📊 Показатели точности</h2>
+        <p>Точность модели: <span class="metric" id="accuracy">--</span></p>
+        <p>AUC-ROC: <span class="metric" id="auc">--</span></p>
+        <p>Обучающая выборка: <span id="train_size">--</span></p>
+        <p>Тестовая выборка: <span id="test_size">--</span></p>
+    </div>
+
+    <div class="card">
+        <h2>🔍 Проверить заявку</h2>
+        <div class="form-group">
+            <label>Возраст:</label>
+            <input type="number" id="age" min="18" max="70" value="30">
+        </div>
+        <div class="form-group">
+            <label>Стаж вождения (лет):</label>
+            <input type="number" id="experience" min="0" max="50" value="5">
+        </div>
+        <div class="form-group">
+            <label>Число ДТП:</label>
+            <input type="number" id="accidents" min="0" max="10" value="0">
+        </div>
+        <button onclick="predict()">Проверить</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        // Загрузка метрик
+        fetch('model_results.json')
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('accuracy').textContent = data.accuracy_percent + '%';
+                document.getElementById('auc').textContent = data.auc_roc;
+                document.getElementById('train_size').textContent = data.train_size;
+                document.getElementById('test_size').textContent = data.test_size;
+            });
+
+        // Предсказание
+        async function predict() {
+            const age = parseInt(document.getElementById('age').value);
+            const experience = parseInt(document.getElementById('experience').value);
+            const accidents = parseInt(document.getElementById('accidents').value);
+
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({age, driving_experience: experience, accidents})
+            });
+
+            const result = await response.json();
+            const resultDiv = document.getElementById('result');
+            
+            if (result.approval === 1) {
+                resultDiv.className = 'approved';
+                resultDiv.innerHTML = `<h3>✅ Одобрено</h3><p>Вероятность: ${(result.probability * 100).toFixed(2)}%</p>`;
+            } else {
+                resultDiv.className = 'rejected';
+                resultDiv.innerHTML = `<h3>❌ Отказ</h3><p>Вероятность: ${(result.probability * 100).toFixed(2)}%</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
+    
+    <h2>21 февраля 2026</h2>
     
     <p><Вопрос пользователя: Сколько ждать мой заказ?
 Ответ бот-FAQ: Наш стандартный срок доставки — 3–5 рабочих дней.</p>
