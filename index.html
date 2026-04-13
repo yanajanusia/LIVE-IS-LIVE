@@ -308,7 +308,189 @@ blockquote {
       234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123
       456789012345678901234567890123456789012345678901234567890123456789012345678901234567890......785696718
       753769480731766</p>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>База данных Стоматологической клиники</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/drawio-embed@1.0.0/diagram-editor.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🦷 Система управления стоматологической клиникой</h1>
+        <nav>
+            <a href="#hierarchical">Иерархическая модель</a>
+            <a href="#doctor">Врач</a>
+            <a href="#nurse">Медсестра</a>
+            <a href="#operation">Операция</a>
+        </nav>
+    </header>
 
+    <main>
+        <!-- Секция 1: Иерархическая модель -->
+        <section id="hierarchical" class="section">
+            <h2>1. Общая иерархическая модель</h2>
+            <div class="diagram-container">
+                <iframe src="diagrams/hierarchical-model.html" 
+                        width="100%" 
+                        height="600" 
+                        frameborder="0">
+                </iframe>
+            </div>
+            <div class="entity-description">
+                <h3>Сущности системы:</h3>
+                <ul>
+                    <li><strong>СТОМАТОЛОГИЯ</strong> - корневая сущность</li>
+                    <li><strong>ВРАЧ</strong> - медицинский специалист</li>
+                    <li><strong>МЕДСЕСТРА</strong> - вспомогательный персонал</li>
+                    <li><strong>ОПЕРАЦИЯ</strong> - медицинская процедура</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Секция 2: Врач -->
+        <section id="doctor" class="section">
+            <h2>2. Сущность "ВРАЧ"</h2>
+            <div class="entity-card">
+                <h3>Атрибуты сущности:</h3>
+                <table class="attributes-table">
+                    <tr><th>Атрибут</th><th>Значение</th><th>Тип</th></tr>
+                    <tr><td>ID_ВРАЧА</td><td>700</td><td>Первичный ключ</td></tr>
+                    <tr><td>ФИО</td><td>СИМОНОВ ЕГОР ЕГОР</td><td>VARCHAR</td></tr>
+                    <tr><td>ЛИЦЕНЗИЯ</td><td>Л-4353656</td><td>VARCHAR</td></tr>
+                    <tr><td>СТАЖ</td><td>3 ГОДА</td><td>INTEGER</td></tr>
+                    <tr><td>КАТЕГОРИЯ</td><td>ВЫСШАЯ</td><td>VARCHAR</td></tr>
+                    <tr><td>СПЕЦИАЛИЗАЦИЯ</td><td>ОРТОДОНТИЯ</td><td>VARCHAR</td></tr>
+                    <tr><td>ГРАФИК</td><td>ПН-ПТ 14-19:00</td><td>VARCHAR</td></tr>
+                    <tr><td>ДОСТУП</td><td>УРОВЕНЬ 3</td><td>INTEGER</td></tr>
+                    <tr><td>ТЕЛЕФОН</td><td>+79995567733</td><td>VARCHAR</td></tr>
+                    <tr><td>ПОЛ</td><td>М</td><td>CHAR</td></tr>
+                </table>
+            </div>
+
+            <h3>Первичный индекс (показывает все данные)</h3>
+            <div class="diagram-container">
+                <iframe src="diagrams/doctor-primary-index.html" 
+                        width="100%" 
+                        height="500" 
+                        frameborder="0">
+                </iframe>
+            </div>
+
+            <h3>Вторичные индексы</h3>
+            <div class="diagram-container">
+                <iframe src="diagrams/doctor-secondary-indexes.html" 
+                        width="100%" 
+                        height="700" 
+                        frameborder="0">
+                </iframe>
+            </div>
+            <div class="index-info">
+                <p><strong>Индекс 1:</strong> по ЛИЦЕНЗИЯ (уникальный)</p>
+                <p><strong>Индекс 2:</strong> по СПЕЦИАЛИЗАЦИЯ (неуникальный)</p>
+                <p><strong>Индекс 3:</strong> по КАТЕГОРИЯ (неуникальный)</p>
+            </div>
+        </section>
+
+        <!-- Секция 3: Медсестра -->
+        <section id="nurse" class="section">
+            <h2>3. Сущность "МЕДСЕСТРА"</h2>
+            <div class="entity-card">
+                <h3>Атрибуты сущности:</h3>
+                <table class="attributes-table">
+                    <tr><th>Атрибут</th><th>Значение</th><th>Тип</th></tr>
+                    <tr><td>ID_МЕДСЕСТРЫ</td><td>300</td><td>Первичный ключ</td></tr>
+                    <tr><td>ФИО</td><td>ТОПОВА ЕВА ЕВА</td><td>VARCHAR</td></tr>
+                    <tr><td>СЕРТИФИКАТ</td><td>С-13434</td><td>VARCHAR</td></tr>
+                    <tr><td>ЗОНА</td><td>ОПЕРАЦИОННАЯ №3</td><td>VARCHAR</td></tr>
+                    <tr><td>РАЗРЯД</td><td>4</td><td>INTEGER</td></tr>
+                    <tr><td>КАБИНЕТ</td><td>454 КАБ</td><td>VARCHAR</td></tr>
+                    <tr><td>НАВЫКИ</td><td>АССИСТИРОВАНИЕ</td><td>VARCHAR</td></tr>
+                    <tr><td>КОНТАКТ</td><td>324</td><td>VARCHAR</td></tr>
+                    <tr><td>ТЕЛЕФОН</td><td>+79917783421</td><td>VARCHAR</td></tr>
+                    <tr><td>ПОЛ</td><td>Ж</td><td>CHAR</td></tr>
+                </table>
+            </div>
+
+            <h3>Первичный индекс (показывает все данные)</h3>
+            <div class="diagram-container">
+                <iframe src="diagrams/nurse-primary-index.html" 
+                        width="100%" 
+                        height="500" 
+                        frameborder="0">
+                </iframe>
+            </div>
+
+            <h3>Вторичные индексы</h3>
+            <div class="diagram-container">
+                <iframe src="diagrams/nurse-secondary-indexes.html" 
+                        width="100%" 
+                        height="700" 
+                        frameborder="0">
+                </iframe>
+            </div>
+            <div class="index-info">
+                <p><strong>Индекс 1:</strong> по СЕРТИФИКАТ (уникальный)</p>
+                <p><strong>Индекс 2:</strong> по ЗОНА (неуникальный)</p>
+                <p><strong>Индекс 3:</strong> по РАЗРЯД (неуникальный)</p>
+            </div>
+        </section>
+
+        <!-- Секция 4: Операция -->
+        <section id="operation" class="section">
+            <h2>4. Сущность "ОПЕРАЦИЯ"</h2>
+            <div class="entity-card">
+                <h3>Атрибуты сущности:</h3>
+                <table class="attributes-table">
+                    <tr><th>Атрибут</th><th>Значение</th><th>Тип</th></tr>
+                    <tr><td>ID_ОПЕРАЦИИ</td><td>900</td><td>Первичный ключ</td></tr>
+                    <tr><td>КОД_МКБ</td><td>343</td><td>VARCHAR</td></tr>
+                    <tr><td>НАЗВАНИЕ</td><td>УСТАНОВКА ПЛАСТИН</td><td>VARCHAR</td></tr>
+                    <tr><td>ДЛИТЕЛЬНОСТЬ</td><td>40 МИНУТ</td><td>INTEGER</td></tr>
+                    <tr><td>ДАТА_ВРЕМЯ</td><td>12.05.3034 12:54</td><td>DATETIME</td></tr>
+                    <tr><td>АНАСТЕЗИЯ</td><td>НЕ ТРЕБУЕТСЯ</td><td>VARCHAR</td></tr>
+                    <tr><td>СЛОЖНОСТЬ</td><td>МИНИМАЛЬНАЯ</td><td>VARCHAR</td></tr>
+                    <tr><td>ИСХОД</td><td>УСПЕШНО</td><td>VARCHAR</td></tr>
+                    <tr><td>ТЕЛЕФОН</td><td>+79884342266</td><td>VARCHAR</td></tr>
+                    <tr><td>ВОЗРАСТ_ПАЦИЕНТА</td><td>22</td><td>INTEGER</td></tr>
+                </table>
+            </div>
+
+            <h3>Первичный индекс (показывает все данные)</h3>
+            <div class="diagram-container">
+                <iframe src="diagrams/operation-primary-index.html" 
+                        width="100%" 
+                        height="500" 
+                        frameborder="0">
+                </iframe>
+            </div>
+
+            <h3>Вторичные индексы</h3>
+            <div class="diagram-container">
+                <iframe src="diagrams/operation-secondary-indexes.html" 
+                        width="100%" 
+                        height="700" 
+                        frameborder="0">
+                </iframe>
+            </div>
+            <div class="index-info">
+                <p><strong>Индекс 1:</strong> по КОД_МКБ (неуникальный)</p>
+                <p><strong>Индекс 2:</strong> по ДАТА_ВРЕМЯ (уникальный)</p>
+                <p><strong>Индекс 3:</strong> по СЛОЖНОСТЬ (неуникальный)</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Система управления стоматологической клиникой</p>
+        <p>GitHub Pages Deployment</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
 <h2>25 марта 2026</h2>
  <p> показатель точности модели по выдаче кредита- 0.69</p>
  <p>Точность решения заключения страхования КАСКО - 0.98</p>
