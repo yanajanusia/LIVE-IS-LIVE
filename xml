@@ -1,0 +1,171 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Hierarchical Model" id="hier-1">
+    <mxGraphModel dx="1422" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Root: СТОМАТОЛОГИЯ -->
+        <mxCell id="2" value="СТОМАТОЛОГИЯ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#667eea;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="480" y="40" width="200" height="60" as="geometry"/>
+        </mxCell>
+        
+        <!-- ВРАЧ -->
+        <mxCell id="3" value="&lt;b&gt;ВРАЧ&lt;/b&gt;&lt;br&gt;ID: 700&lt;br&gt;ФИО: СИМОНОВ ЕГОР ЕГОР&lt;br&gt;ЛИЦЕНЗИЯ: Л-4353656&lt;br&gt;СТАЖ: 3 ГОДА&lt;br&gt;КАТЕГОРИЯ: ВЫСШАЯ&lt;br&gt;СПЕЦИАЛИЗАЦИЯ: ОРТОДОНТИЯ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="80" y="160" width="280" height="140" as="geometry"/>
+        </mxCell>
+        
+        <!-- МЕДСЕСТРА -->
+        <mxCell id="4" value="&lt;b&gt;МЕДСЕСТРА&lt;/b&gt;&lt;br&gt;ID: 300&lt;br&gt;ФИО: ТОПОВА ЕВА ЕВА&lt;br&gt;СЕРТИФИКАТ: С-13434&lt;br&gt;ЗОНА: ОПЕРАЦИОННАЯ №3&lt;br&gt;РАЗРЯД: 4" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366" vertex="1" parent="1">
+          <mxGeometry x="440" y="160" width="280" height="140" as="geometry"/>
+        </mxCell>
+        
+        <!-- ОПЕРАЦИЯ -->
+        <mxCell id="5" value="&lt;b&gt;ОПЕРАЦИЯ&lt;/b&gt;&lt;br&gt;ID: 900&lt;br&gt;КОД МКБ: 343&lt;br&gt;НАЗВАНИЕ: УСТАНОВКА ПЛАСТИН&lt;br&gt;ДЛИТЕЛЬНОСТЬ: 40 МИНУТ&lt;br&gt;СЛОЖНОСТЬ: МИНИМАЛЬНАЯ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00" vertex="1" parent="1">
+          <mxGeometry x="800" y="160" width="280" height="140" as="geometry"/>
+        </mxCell>
+        
+        <!-- Связи -->
+        <mxCell id="6" value="" style="endArrow=block;endFill=1;endSize=12;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="2" target="3">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="480" y="200" as="sourcePoint"/>
+            <mxPoint x="640" y="200" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="7" value="" style="endArrow=block;endFill=1;endSize=12;html=1;exitX=0.5;exitY=1;" edge="1" parent="1" source="2">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="590" y="110" as="sourcePoint"/>
+            <mxPoint x="580" y="160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <mxCell id="8" value="" style="endArrow=block;endFill=1;endSize=12;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="2" target="5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="690" y="110" as="sourcePoint"/>
+            <mxPoint x="940" y="160" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile><mxfile host="app.diagrams.net">
+  <diagram name="Doctor Primary Index" id="doc-pri-1">
+    <mxGraphModel dx="1422" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Заголовок -->
+        <mxCell id="2" value="&lt;b&gt;ПЕРВИЧНЫЙ ИНДЕКС: ВРАЧ&lt;/b&gt;&lt;br&gt;Запрос: &quot;Показать все данные по сущности ВРАЧ&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="400" y="20" width="400" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- B-дерево индекса -->
+        <mxCell id="3" value="&lt;b&gt;ID_ВРАЧА (Primary Key)&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#667eea;fontColor=#ffffff;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="500" y="80" width="200" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Узлы B-дерева -->
+        <mxCell id="4" value="700" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="540" y="140" width="80" height="80" as="geometry"/>
+        </mxCell>
+        
+        <!-- Указатель на данные -->
+        <mxCell id="5" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="240" as="sourcePoint"/>
+            <mxPoint x="580" y="280" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Блок данных -->
+        <mxCell id="6" value="&lt;b&gt;Блок данных:&lt;/b&gt;&lt;br&gt;ID: 700&lt;br&gt;ФИО: СИМОНОВ ЕГОР ЕГОР&lt;br&gt;ЛИЦЕНЗИЯ: Л-4353656&lt;br&gt;СТАЖ: 3 ГОДА&lt;br&gt;КАТЕГОРИЯ: ВЫСШАЯ&lt;br&gt;СПЕЦИАЛИЗАЦИЯ: ОРТОДОНТИЯ&lt;br&gt;ГРАФИК: ПН-ПТ 14-19:00&lt;br&gt;ДОСТУП: УРОВЕНЬ 3&lt;br&gt;ТЕЛЕФОН: +79995567733" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="420" y="280" width="320" height="180" as="geometry"/>
+        </mxCell>
+        
+        <!-- Схема поиска -->
+        <mxCell id="7" value="&lt;b&gt;Схема формирования ответа:&lt;/b&gt;&lt;br&gt;1. Поиск по первичному индексу ID_ВРАЧА&lt;br&gt;2. Поиск значения 700 в B-дереве&lt;br&gt;3. Получение указателя на блок данных&lt;br&gt;4. Чтение всех атрибутов из блока&lt;br&gt;5. Возврат полного набора данных" style="text;html=1;strokeColor=#000000;fillColor=#ffffff;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="500" width="400" height="140" as="geometry"/>
+        </mxCell>
+        
+        <!-- Структура индекса -->
+        <mxCell id="8" value="&lt;b&gt;Структура первичного индекса:&lt;/b&gt;&lt;br&gt;Тип: B+Tree&lt;br&gt;Ключ: ID_ВРАЧА (уникальный)&lt;br&gt;Уровень: 1&lt;br&gt;Заполнение: 1 запись" style="text;html=1;strokeColor=#000000;fillColor=#ffffff;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="720" y="500" width="320" height="100" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile><mxfile host="app.diagrams.net">
+  <diagram name="Doctor Secondary Indexes" id="doc-sec-1">
+    <mxGraphModel dx="1422" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        
+        <!-- Заголовок -->
+        <mxCell id="2" value="&lt;b&gt;ВТОРИЧНЫЕ ИНДЕКСЫ: ВРАЧ&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="450" y="20" width="300" height="40" as="geometry"/>
+        </mxCell>
+        
+        <!-- Индекс 1: ЛИЦЕНЗИЯ -->
+        <mxCell id="3" value="&lt;b&gt;Индекс 1: ЛИЦЕНЗИЯ&lt;/b&gt;&lt;br&gt;(Уникальный)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#667eea;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="80" y="80" width="280" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="4" value="Л-4353656" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf" vertex="1" parent="1">
+          <mxGeometry x="140" y="140" width="160" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="5" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;" edge="1" parent="1" source="4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="190" as="sourcePoint"/>
+            <mxPoint x="580" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Индекс 2: СПЕЦИАЛИЗАЦИЯ -->
+        <mxCell id="6" value="&lt;b&gt;Индекс 2: СПЕЦИАЛИЗАЦИЯ&lt;/b&gt;&lt;br&gt;(Неуникальный)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#764ba2;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="440" y="80" width="280" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="7" value="ОРТОДОНТИЯ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6" vertex="1" parent="1">
+          <mxGeometry x="500" y="140" width="160" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="8" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;" edge="1" parent="1" source="7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="580" y="190" as="sourcePoint"/>
+            <mxPoint x="580" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Индекс 3: КАТЕГОРИЯ -->
+        <mxCell id="9" value="&lt;b&gt;Индекс 3: КАТЕГОРИЯ&lt;/b&gt;&lt;br&gt;(Неуникальный)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d79b00;fontColor=#ffffff" vertex="1" parent="1">
+          <mxGeometry x="800" y="80" width="280" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="10" value="ВЫСШАЯ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00" vertex="1" parent="1">
+          <mxGeometry x="860" y="140" width="160" height="40" as="geometry"/>
+        </mxCell>
+        
+        <mxCell id="11" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=1;" edge="1" parent="1" source="10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="940" y="190" as="sourcePoint"/>
+            <mxPoint x="580" y="450" as="targetPoint"/>
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Блок данных -->
+        <mxCell id="12" value="&lt;b&gt;Блок данных ВРАЧА:&lt;/b&gt;&lt;br&gt;ID: 700&lt;br&gt;ФИО: СИМОНОВ ЕГОР ЕГОР&lt;br&gt;ЛИЦЕНЗИЯ: Л-4353656&lt;br&gt;СТАЖ: 3 ГОДА&lt;br&gt;КАТЕГОРИЯ: ВЫСШАЯ&lt;br&gt;СПЕЦИАЛИЗАЦИЯ: ОРТОДОНТИЯ" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450" vertex="1" parent="1">
+          <mxGeometry x="420" y="450" width="320" height="140" as="geometry"/>
+        </mxCell>
+        
+        <!-- Описание -->
+        <mxCell id="13" value="&lt;b&gt;Назначение вторичных индексов:&lt;/b&gt;&lt;br&gt;• Ускорение поиска по неключевым атрибутам&lt;br&gt;• Индекс по ЛИЦЕНЗИЯ - быстрый поиск врача&lt;br&gt;• Индекс по СПЕЦИАЛИЗАЦИЯ - поиск по специализации&lt;br&gt;• Индекс по КАТЕГОРИЯ - фильтрация по категории" style="text;html=1;strokeColor=#000000;fillColor=#ffffff;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="200" y="620" width="760" height="100" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
